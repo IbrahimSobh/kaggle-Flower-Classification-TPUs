@@ -21,7 +21,7 @@ Images are provided in **TFRecord** format, a container format frequently used i
 
 # Recipe for accuracy 95+
 
-- Use the [getting started notebook](https://www.kaggle.com/mgornergoogle/getting-started-with-100-flowers-on-tpu/). Do not waste your time for simple data loading and inspecting code.
+Do not waste your time for simple data loading and inspecting code. Use the [getting started notebook](https://www.kaggle.com/mgornergoogle/getting-started-with-100-flowers-on-tpu/).
 
 ### Use **Transfer Learning** with fine tuning. 
 
@@ -41,12 +41,6 @@ with strategy.scope():
         tf.keras.layers.Dense(len(CLASSES), activation='softmax')
     ])
 
-    
-model.compile(
-    optimizer='adam',
-    loss = categorical_smooth_loss,
-    metrics=['categorical_accuracy']
-)
 ```
 
 **Second**, fine tune the whole network.
@@ -88,46 +82,35 @@ def categorical_smooth_loss(y_true, y_pred, label_smoothing=0.1):
     loss = tf.keras.losses.categorical_crossentropy(y_true, y_pred, label_smoothing=label_smoothing)
     return loss
 ```
+```
+model.compile(
+    optimizer='adam',
+    loss = categorical_smooth_loss,
+    metrics=['categorical_accuracy']
+)
+```
 
 ## Results
 
 ![cm](images/res95.png)
 
 
-## Welcome to GitHub Pages
+# Recipe for accuracy 96+
 
-You can use the [editor on GitHub](https://github.com/IbrahimSobh/kaggleFlowerClassificationTPUs/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+### Use simple **Ensemble** of DenseNet201 and EfficientNetB7
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+```
+## find best weight between models (can be another model!)
+scores = []
+for alpha in np.linspace(0,1,100):
+    cm_probabilities = alpha*cm_probabilities1+(1-alpha)*cm_probabilities2
+    cm_predictions = np.argmax(cm_probabilities, axis=-1)
+    scores.append(accuracy_score(cm_correct_labels, cm_predictions))
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+![ensemble](images/ens.PNG)
 
-### Jekyll Themes
+## Results
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/IbrahimSobh/kaggleFlowerClassificationTPUs/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+![ensemble](images/res96.png)
