@@ -19,8 +19,9 @@ Images are provided in **TFRecord** format, a container format frequently used i
 - 3712 validation images
 - 7382 unlabeled test images
 
----
+
 # **Recipe for accuracy 95+** [code on Kaggle](https://www.kaggle.com/ibrahimsobh/recipe-flower-classification-tpu-0-95-pub)
+
 ---
 
 Do not waste your time on simple data loading and inspecting code. Use the [getting started notebook](https://www.kaggle.com/mgornergoogle/getting-started-with-100-flowers-on-tpu/).
@@ -96,8 +97,9 @@ model.compile(
 
 ![cm](images/res95.png)
 
----
+
 # **Recipe for accuracy 96+** [code on Kaggle](https://www.kaggle.com/ibrahimsobh/flower-classification-tpu-0-96-pub)
+
 ---
 
 ### Use simple **Ensemble** of DenseNet201 and EfficientNetB7
