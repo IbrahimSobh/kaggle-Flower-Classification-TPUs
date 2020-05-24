@@ -25,7 +25,7 @@ Images are provided in **TFRecord** format, a container format frequently used i
 
 Do not waste your time on simple data loading and inspecting code. Use the [getting started notebook](https://www.kaggle.com/mgornergoogle/getting-started-with-100-flowers-on-tpu/).
 
-### Use **Transfer Learning** with fine tuning. 
+### 1- Use **Transfer Learning** with fine tuning. 
 
 To avoid over-fitting, use small networks such as Inception and DenseNet.
 
@@ -54,11 +54,11 @@ model.compile(
     metrics=['categorical_accuracy']
 )
 ```
-### Use **learning rate scheduling**, for more stable training.
+### 2- Use **learning rate scheduling**, for more stable training.
 
 ![lr](images/lr.PNG)
 
-### Use reasonable **data augmentation**
+### 3- Use reasonable **data augmentation**
 
 ```markdown
 def data_augment(image, label):
@@ -75,7 +75,7 @@ def data_augment(image, label):
 
 ![sample02](images/sample02.PNG)
 
-### Use **Label smoothing** to have a better generalization.
+### 4- Use **Label smoothing** to have a better generalization.
 
 [Label smoothing](https://www.linkedin.com/pulse/label-smoothing-solving-overfitting-overconfidence-code-sobh-phd/) a mechanism for encouraging the model to be less confident. Instead of minimizing cross-entropy with hard targets (one-hot encoding), we minimize it using soft targets.
 
