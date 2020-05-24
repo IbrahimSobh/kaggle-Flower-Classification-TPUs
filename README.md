@@ -27,7 +27,7 @@ Do not waste your time on simple data loading and inspecting code. Use the [gett
 
 ### 1- Use **Transfer Learning** with fine tuning. 
 
-To avoid over-fitting, use small networks such as Inception and DenseNet.
+To avoid over-fitting, use small networks such as [DenseNet](https://arxiv.org/abs/1608.06993) used here.
 
 **First**, freeze the weights of the pretrained network and trian only the added layers.
 
@@ -103,8 +103,21 @@ model.compile(
 
 ### Use simple **Ensemble** of DenseNet201 and EfficientNetB7
 
+Instead of one network, we train two and then combine their probability distributions. 
+
+- [DenseNet201](https://arxiv.org/abs/1608.06993)
+
+![DenseNet](/images/lcdnet.PNG)
+
+- [EfficientNetB7](https://arxiv.org/abs/1905.11946)
+
+![DenseNet](/images/lcenet.PNG)
+
+
+- Find best weight between models (can be another model!)
+
 ```
-## find best weight between models (can be another model!)
+
 scores = []
 for alpha in np.linspace(0,1,100):
     cm_probabilities = alpha*cm_probabilities1+(1-alpha)*cm_probabilities2
