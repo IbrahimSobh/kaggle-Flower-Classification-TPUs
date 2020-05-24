@@ -1,3 +1,18 @@
+
+## Flower Classification with TPUs
+
+There are over **5,000** species of mammals, **10,000** species of birds, **30,000** species of fish – and astonishingly, over **400,000** different types of flowers. In this competition, we are challenged to build a machine learning model that identifies the type of flowers in a dataset of images over 104 types.
+
+## Tensor Processing Units (TPUs)
+
+TPUs are powerful hardware accelerators specialized in deep learning tasks. They were developed and first used by **Google** to process **large image databases**. This competition is designed to give TPUs a try.
+
+
+## Data Description
+
+Images are provided in **TFRecord** format, a container format frequently used in Tensorflow to group data files for optimal training performace. Each file contains the id, label and img.
+
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/IbrahimSobh/kaggleFlowerClassificationTPUs/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
