@@ -114,3 +114,11 @@ for alpha in np.linspace(0,1,100):
 ## Results
 
 ![ensemble](images/res96.png)
+
+
+# Next Steps:
+- Use more Networks (EfficientNet)
+- More data augmentation (Rotation with small angles)
+- Try Focal Loss with different settings
+- Try label smoothing with different settings
+- Train Ensemble as one network, end to end
