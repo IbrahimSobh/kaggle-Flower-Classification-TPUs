@@ -1,16 +1,23 @@
 
 ## Flower Classification with TPUs
 
-There are over **5,000** species of mammals, **10,000** species of birds, **30,000** species of fish – and astonishingly, over **400,000** different types of flowers. In this competition, we are challenged to build a machine learning model that identifies the type of flowers in a dataset of images over 104 types.
+There are over **5,000** species of mammals, **10,000** species of birds, **30,000** species of fish – and astonishingly, over **400,000** different types of flowers. In this competition, we are challenged to build a machine learning model that identifies the type of flowers in a dataset of images over **104** types.
+
+![sample01](images/sample01.PNG)
 
 ## Tensor Processing Units (TPUs)
 
-TPUs are powerful hardware accelerators specialized in deep learning tasks. They were developed and first used by **Google** to process **large image databases**. This competition is designed to give TPUs a try.
+TPUs are powerful hardware accelerators specialized in deep learning tasks. [Cloud TPU](https://cloud.google.com/tpu) is the custom-designed machine learning ASIC that powers **Google products** like Translate, Photos, Search, Assistant, and Gmail. They were developed and first used by **Google** to process **large image databases**. This competition is designed to give TPUs a try.
 
+![sample01](https://cloud.google.com/images/products/tpu/google-cloud-ai.png)
 
 ## Data Description
 
-Images are provided in **TFRecord** format, a container format frequently used in Tensorflow to group data files for optimal training performace. Each file contains the id, label and img.
+Images are provided in **TFRecord** format, a container format frequently used in Tensorflow to group data files for optimal training performace. Each file contains the id, label and image.
+
+- 12753 training images
+- 3712 validation images
+- 7382 unlabeled test images
 
 
 ## Welcome to GitHub Pages
