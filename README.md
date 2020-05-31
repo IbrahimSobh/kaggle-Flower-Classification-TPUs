@@ -56,11 +56,18 @@ model.compile(
 ```
 ### 2- Use **learning rate scheduling**, for more stable training.
 
+High initial learning rates can make loss explode. It is usually better linearly to increase learning rate from very small value over the first ~5000 iterations. Moreover, if we increase the batch size by N, also scale the initial learning rate by N. Goyal et al, [Accurate, Large Minibatch SGD: Training ImageNet in 1 Hour](https://arxiv.org/pdf/1706.02677.pdf).
+
+```
+LR_START = 0.00001
+LR_MAX = 0.00005 * strategy.num_replicas_in_sync
+```
+
 ![lr](images/lr.PNG)
 
 ### 3- Use reasonable **data augmentation**
 
-```markdown
+```
 def data_augment(image, label):
     # data augmentation. Thanks to the dataset.prefetch(AUTO) statement in the next function (below),
     # this happens essentially for free on TPU. Data pipeline code is executed on the "CPU" part
