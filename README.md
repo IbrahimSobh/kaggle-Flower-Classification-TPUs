@@ -84,7 +84,7 @@ def data_augment(image, label):
 
 ### 4- Use **Label smoothing** to have a better generalization.
 
-[Label smoothing](https://www.linkedin.com/pulse/label-smoothing-solving-overfitting-overconfidence-code-sobh-phd/) a mechanism for encouraging the model to be less confident. Instead of minimizing cross-entropy with hard targets (one-hot encoding), we minimize it using soft targets.
+[Label smoothing](https://www.linkedin.com/pulse/label-smoothing-solving-overfitting-overconfidence-code-sobh-phd/) is a mechanism for encouraging the model to be less confident. Instead of minimizing cross-entropy with hard targets (one-hot encoding), we minimize it using soft targets.
 
 ```
 def categorical_smooth_loss(y_true, y_pred, label_smoothing=0.1):
